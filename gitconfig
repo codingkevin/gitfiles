@@ -1,0 +1,62 @@
+[alias]
+	# short aliases
+	st = status 
+	co = checkout
+	ci = commit
+	br = branch
+	df = diff
+	lg = log --graph --pretty=oneline --abbrev-commit --decorate
+	rso = remote show origin
+	all = !git log --pretty=oneline --abbrev-commit --all --no-merges
+	graph = log --graph --oneline --decorate --all
+	graph-detail = log -- graph --decorate --all
+
+[color]
+  	# turn on color
+  	diff = auto
+  	status = auto
+  	branch = auto
+  	interactive = auto
+  	ui = auto
+
+[color "branch"]
+  	# good looking colors i copy/pasted from somewhere
+  	current = green bold
+  	local = green
+  	remote = red bold
+
+[color "diff"]
+  	# good looking colors i copy/pasted from somewhere
+  	meta = yellow bold
+  	frag = magenta bold
+  	old = red bold
+  	new = green bold
+
+[color "status"]
+  	# good looking colors i copy/pasted from somewhere
+  	added = green bold
+  	changed = yellow bold
+  	untracked = red
+
+[color "sh"]
+  	branch = yellow
+
+[core]
+	autocrlf = input
+	ignorecase = false
+	whitespace = cr-at-eol
+	editor = vim
+
+[user]
+	name = Kevin Godfrey
+	email = codingkevin@gmail.com
+
+[push]
+  	# 'git push' should only do the current branch, not all
+  	default = current
+
+[diff]
+  	renames = copies
+  	mnemonicprefix = true
+[github]
+	user = codingkevin
