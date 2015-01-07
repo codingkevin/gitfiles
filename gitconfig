@@ -1,15 +1,24 @@
 [alias]
 	# short aliases
-	st = status 
+	st = status -sb
 	co = checkout
 	ci = commit
-	br = branch
+	br = branch -vv
 	df = diff
-	lg = log --graph --pretty=oneline --abbrev-commit --decorate
+	lasttag = describe --tags --abbrev=0
+	uncommit = reset HEAD^
+	save = !git add -A && git commit -m 'SAVEPOINT'
+	wip = !git add -u && git commit -m "WIP"
+	undo = reset HEAD~1 --mixed
+	amend = commit -a --amend
+	ls = ls-files
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	rso = remote show origin
 	all = !git log --pretty=oneline --abbrev-commit --all --no-merges
 	graph = log --graph --oneline --decorate --all
 	graph-detail = log -- graph --decorate --all
+	unpushed = log --branches --not --remotes --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
 
 [color]
   	# turn on color
@@ -19,18 +28,21 @@
   	interactive = auto
   	ui = auto
 
+
 [color "branch"]
   	# good looking colors i copy/pasted from somewhere
-  	current = green bold
-  	local = green
-  	remote = red bold
+	current = red
+	local = yellow
+	remote = green
+
 
 [color "diff"]
   	# good looking colors i copy/pasted from somewhere
-  	meta = yellow bold
-  	frag = magenta bold
-  	old = red bold
-  	new = green bold
+	meta = cyan
+	frag = magenta
+	old = red bold
+	new = green bold
+
 
 [color "status"]
   	# good looking colors i copy/pasted from somewhere
@@ -38,8 +50,10 @@
   	changed = yellow bold
   	untracked = red
 
+
 [color "sh"]
   	branch = yellow
+
 
 [core]
 	autocrlf = input
@@ -47,16 +61,15 @@
 	whitespace = cr-at-eol
 	editor = vim
 
-[user]
-	name = Kevin Godfrey
-	email = codingkevin@gmail.com
 
 [push]
   	# 'git push' should only do the current branch, not all
   	default = current
 
+
 [diff]
   	renames = copies
   	mnemonicprefix = true
+
 [github]
 	user = codingkevin
